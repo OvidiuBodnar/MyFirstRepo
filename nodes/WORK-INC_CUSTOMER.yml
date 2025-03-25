@@ -1,0 +1,120 @@
+fileVersion: 1
+id: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+name: INC_CUSTOMER
+operation:
+  config:
+    incColumn:
+      columnCounter: e16d61a0-6678-4a0b-83dc-05facfe0174f
+      stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+    persistTableLocation: WORK
+    persistTableName: PSTG_CUSTOMER
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e16d61a0-6678-4a0b-83dc-05facfe0174f
+          stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4346d150-ccec-40c2-af5b-414cb727d253
+                stepCounter: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5c05285-5f5c-43eb-8125-8c389f578ddd
+          stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad905d27-1fc6-4830-bbf5-4f17f0ca0390
+                stepCounter: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3cc86a4d-c27d-47cd-a9fe-12cc7a3fd370
+          stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        name: C_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f858f8d-de74-4edc-9380-95467bf38e6a
+                stepCounter: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ced23a46-6ca8-42cc-ab53-6ddf02dbb71f
+          stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: C_PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dd9cad52-2d03-4912-a2f3-f90816e3998d
+                stepCounter: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00653c70-367f-4e0f-aa09-aa4186717815
+          stepCounter: 7ed8ce87-c53d-4c4e-85f7-8be757594544
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: C_ACCTBAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cda5faf8-ea61-4616-bb05-b1ad9cae50dc
+                stepCounter: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_CUSTOMER: 07196e56-8edc-45e1-ab4f-d74da2af7b2d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_CUSTOMER
+        join:
+          joinCondition: |
+            FROM{{ ref('WORK', 'STG_CUSTOMER') }} "STG_CUSTOMER"
+              WHERE "STG_CUSTOMER"."C_CUSTKEY" > 
+              (SELECT COALESCE(MAX("C_CUSTKEY"), '1900-01-01') 
+                        FROM {{ ref_no_link('WORK', 'PSTG_CUSTOMER') }} )
+        name: INC_CUSTOMER
+        noLinkRefs:
+          - locationName: WORK
+            nodeName: PSTG_CUSTOMER
+  name: INC_CUSTOMER
+  overrideSQL: false
+  schema: ""
+  sqlType: Ovi-Incremental:::230
+  type: sql
+  version: 1
+type: Node
