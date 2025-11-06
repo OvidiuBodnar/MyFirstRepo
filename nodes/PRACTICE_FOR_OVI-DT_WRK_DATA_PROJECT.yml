@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 94d12d37-f7c1-484c-90ac-19b43321ab6d
+name: DT_WRK_DATA_PROJECT
+operation:
+  config:
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    cpygrants: false
+    downstreamOption: false
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION ALL
+    lagSpecification:
+      items:
+        - lagPeriod: Days
+          lagValue: "100"
+    refresh_mode: FULL
+    selectDistinct: false
+    warehouseName: compute_wh
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: PRACTICE_FOR_OVI
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86b820bb-3df4-4c81-a0b9-a60e732d6ed5
+          stepCounter: 94d12d37-f7c1-484c-90ac-19b43321ab6d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: _meta/path
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: efe52700-7f7f-4685-893e-98a520dd624b
+                stepCounter: b5a0e054-8b2d-4de9-9497-a9727f6b826e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c7b7932-b554-468e-abcd-cdae2253de67
+          stepCounter: 94d12d37-f7c1-484c-90ac-19b43321ab6d
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: _meta/mtime
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63378190-9482-49ba-b851-cef66c5c5d11
+                stepCounter: b5a0e054-8b2d-4de9-9497-a9727f6b826e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 190e2bc1-1857-45b9-8858-ce221052283b
+          stepCounter: 94d12d37-f7c1-484c-90ac-19b43321ab6d
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: FLOW_PUBLISHED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d59ed6a0-79d0-40d4-bd3d-3a85d6ffcc92
+                stepCounter: b5a0e054-8b2d-4de9-9497-a9727f6b826e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 967fd73f-d34a-4972-8a48-a66c9a5478f4
+          stepCounter: 94d12d37-f7c1-484c-90ac-19b43321ab6d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FLOW_DOCUMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b62595df-d0fa-49d8-a34a-5217d0055895
+                stepCounter: b5a0e054-8b2d-4de9-9497-a9727f6b826e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DATA_PROJECT: b5a0e054-8b2d-4de9-9497-a9727f6b826e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: PRACTICE_FOR_OVI
+            nodeName: DATA_PROJECT
+        join:
+          joinCondition: FROM {{ ref('PRACTICE_FOR_OVI', 'DATA_PROJECT') }} "DATA_PROJECT"
+        name: DT_WRK_DATA_PROJECT
+        noLinkRefs: []
+  name: DT_WRK_DATA_PROJECT
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic-Tables-2-1-3:::347
+  type: sql
+  version: 1
+type: Node

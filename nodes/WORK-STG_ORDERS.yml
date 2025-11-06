@@ -15,7 +15,12 @@ operation:
   locationName: WORK
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: true
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: ""
     columns:
       - appliedColumnTests: {}
         columnReference:

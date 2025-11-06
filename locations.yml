@@ -1,5 +1,6 @@
 defaultStorageMapping: WORK
 fileVersion: 1
 locations:
+  - PRACTICE_FOR_OVI
   - SAMPLE
   - WORK
